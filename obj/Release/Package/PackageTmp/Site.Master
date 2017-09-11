@@ -1,0 +1,268 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PaymentInquiry.Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+   <meta charset="UTF-8">
+   <link href="Content/bootstrap.min.css" rel="stylesheet" />
+   <title>Payment Inquiry System</title>
+   <script src="scripts/bootstrap.min.js"></script>
+   <link rel="shortcut icon" href="./favicon.ico" type="image/icon" />
+   <link rel="stylesheet" href="scripts/css/style.css">
+   <script type="text/javascript">
+       function openPopup() {
+           window.open("login.aspx", "_blank", "WIDTH=400,HEIGHT=200,scrollbars=no, menubar=no,resizable=yes,directories=no,location=no");
+       }
+   </script>
+   <asp:ContentPlaceHolder ID="head" runat="server">
+   </asp:ContentPlaceHolder>
+
+   <style type="text/css">
+       .auto-style1 {
+           width: 100%;
+       }
+   </style>
+   <style >
+li a:hover:not(.active) {
+  background-color:brown;
+}
+li a.active {
+  background-color: burlywood;
+  color: white;
+}   
+  </style>
+
+   <style>
+
+
+ul,li, nav,a{margin:0;padding:0;}
+a{text-decoration:none; font-family:helvetica; }
+
+ul
+{
+   list-style-type: none;
+}
+
+header h1{text-align:left;font-size:1.7em;border-bottom:3px solid #222; padding:.18em; font-style:italic; font-family: helvetica, "Helvetica Neue", Helvetica, sans-serif; background-color: white ;color:#a10000;}
+#vertical-menu{
+margin-top:20px;
+display:inline-block;
+border-radius:5px;
+box-sizing:border-box;
+padding-left:10px;
+background:#A10000  ;
+margin-left:20px;
+}
+.main-menu {
+display:inline-block;
+width:100%;
+box-sizing:border-box;
+
+}
+
+#buttons {
+  padding-top: 50px;
+  text-align: center;
+}
+
+/* start da css for da buttons */
+.btn {
+  border-radius: 5px;
+  padding: 6px 26px;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: absolute;
+  bottom:10px;
+  left:10px;
+  display: inline-block;
+
+}
+
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.orange {
+  background-color: #a10000;
+  box-shadow: 0px 5px 0px 0px #CD6509;
+}
+
+.orange:hover {
+  background-color: brown;
+}
+
+
+
+.main-menu li{
+position:relative;
+height:50px;
+box-shadow:0 -1px 0 0 #444, 0 -2px 0 0 #222;
+}
+.main-menu>li>a>i{
+color:#FFFF00  ;
+width:2em;
+height:100%;
+line-height:50px;
+text-align:left; 
+}
+
+.main-menu>li:first-child>a, .submenu-1>li:first-child>a, .submenu-2>li:first-child>a, .submenu-3>li:first-child>a{
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+}
+
+
+.main-menu>li>a, .submenu-1>li>a, .submenu-2>li>a,.submenu-3>li>a{
+color:#FF8000  ;
+background:#2a2a2a  ;
+line-height:50px;
+display:block;
+padding:0 1em;
+
+}
+
+.submenu-1,.submenu-2, .submenu-3{
+position:absolute;
+white-space:nowrap;
+top:-9999px;
+}
+
+/* revealing submenus */
+
+
+.main-menu>li:hover>a{
+color:#FFFF00  ;
+}
+
+
+/* Author */
+article{
+text-align:left;
+margin-left:20px;
+}
+article p{
+font-size:1.2em;
+color:#f33039  ;
+}
+ header h1 user {
+     font-size:14px;
+     margin-left:820px;
+     
+       }
+
+
+  </style>
+
+</head>
+<body>
+
+      
+     <header >
+         <h1>&nbsp&nbsp<img src="image/ceblogo.png" alt="Ceylon Electricity Board" /> &nbsp &nbsp  Payment Inquiry System 
+        <user  ><img  src="image/usericon.png"  alt="user"/>
+            
+         <asp:Label  ID="lblLoginDet" runat="server" Text="" Visible="False"  ForeColor="Gray" > </asp:Label>
+
+        </user>
+             </h1>
+  </header>
+
+<form id="form1" runat="server">
+    <table class="auto-style1" > 
+        <tr><td  align="right">
+            <asp:ImageButton ID="btnLogin" runat="server" CausesValidation="False" Font-Bold="True" ImageUrl="~/image/login.jpg" OnClick="btnLogin__Click" />
+            </td>
+        </tr>
+
+        <tr>
+        <td align="right">
+            <asp:ImageButton ID="btnLogOut" runat="server" CausesValidation="False" Font-Bold="True" ImageUrl="~/image/Logout.jpg" OnClick="btnLogOut__Click" Visible="False" />
+         </td>
+         </tr>
+     </table>
+      <nav id="vertical-menu">
+           <ul class="main-menu">
+            
+              <li><a href="ConsolidatedSuspensePayments.aspx">Consolidated Suspense</a></li>
+              <li><a href="ProvincialSuspensePayments.aspx">Provincial Suspense </a></li>
+              <li><a href="OnlinePayments.aspx">Online Payments</a></li>
+              <li><a href="OfflinePayments.aspx">Offline Payments</a></li>
+              <!-- Bulk Payments -->
+              <li><a href="BulkPayments.aspx">Bulk Suspense</a></li> 
+               <li><a href="BulkRunning.aspx">Bulk Running</a></li>
+               
+                
+                      
+</ul>
+      </nav>
+
+    
+
+     
+
+
+
+      <div id="rightWrapper">
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          </asp:ContentPlaceHolder>
+      </div>
+
+         <div id="buttons">
+              <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" Font-Bold="True" ImageUrl="~/image/login.jpg" OnClick="btnLogin__Click" />
+        <asp:Button class="btn orange" ID="b1" fontcolor="" runat="server" Text="Edit Rejected" Visible ="false" OnClientClick="window.location.href='ReEntered.aspx'; return false;"/>
+  &nbsp;&nbsp;&nbsp;
+    <asp:Button class="btn orange" ID="Button1" visible="false" runat="server" Text="Search All" onclientclick= "window.location.href='GetCheck.aspx'; return false;" />
+             
+        </div>
+   
+
+  
+<div id="id01" class="modal">
+ 
+ <%--<form class="modal-content animate" action="action_page.php">
+   <div class="imgcontainer">
+     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     <img src="img_avatar2.png" alt="Avatar" class="avatar">
+   </div>
+
+   <div class="container">
+     <label><b>Username</b></label>
+     <input type="text" placeholder="Enter Username" name="uname" required>
+     <label><b>Password</b></label>
+     <input type="password" placeholder="Enter Password" name="psw" required>
+     <button type="submit">Login</button>
+     <input type="checkbox" checked="checked"> Remember me
+   </div>
+
+   
+ </form>--%>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+   if (event.target == modal) {
+       modal.style.display = "none";
+   }
+}
+</script>
+
+
+
+   <script src="scripts/js/jquery.min.js"></script>
+   <script src="js/index.js"></script>
+    </form>
+   
+
+  
+</body>
+</html>
